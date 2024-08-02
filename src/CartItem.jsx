@@ -37,10 +37,11 @@ const CartItem = ({ onContinueShopping ,onSetRemovedToCart}) => {
     const handleDecrement = (item) => {
         const{name,quantity} = item;
         const pdt = {name,quantity:quantity - 1} 
-        if(quantity > 0){     
+        if(quantity > 1){     
             dispatch(updateQuantity(pdt)); 
         }
         else{
+            onSetRemovedToCart(item);
             dispatch(removeItem(pdt.name));
         }
 

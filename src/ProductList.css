@@ -119,6 +119,7 @@ body {
 
 .product-button:disabled {
     background-color: grey;
+    pointer-events: none;
 }
 
 /* Pseudo-elements - Sale badge */
