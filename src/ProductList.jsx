@@ -259,6 +259,12 @@ function ProductList() {
       //  e.preventDefault();
         setShowCart(false);
     };
+    const setRemovedToCart = (product) => {
+        setAddedToCart((prevState) => ({
+            ...prevState,
+            [product.name]: false, // Set the product name as key and value as true to indicate it's added to cart
+          }));
+    }
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -299,7 +305,7 @@ function ProductList() {
             
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping} onSetRemovedToCart={setRemovedToCart} />
             )}
         </div>
     );
